@@ -93,16 +93,15 @@ body {
 .envelope-writing {
     position: absolute;
     left: 50%;
-    bottom: 15px;
-    transform: translateX(-50%) rotate(-4deg);
-
+    bottom: 8px;
+    
     font-family: "Dancing Script", cursive;
     font-size: 32px;
     color: #e01717;
     opacity: 0.85;
 
     pointer-events: none;
-    z-index: 10;
+    z-index: 7;
 }
 
 /* LETTER */
