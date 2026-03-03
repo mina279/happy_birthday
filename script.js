@@ -1,3 +1,16 @@
+/* POPUP LOGIC */
+const popup = document.getElementById("updatePopup");
+const popupOk = document.getElementById("popupOk");
+
+window.addEventListener("load", () => {
+  popup.classList.add("show");
+});
+
+popupOk.addEventListener("click", () => {
+  popup.classList.remove("show");
+});
+
+/* ENVELOPE + CONFETTI */
 const envelope = document.getElementById('envelope');
 const closeBtn = document.getElementById('closeBtn');
 const confettiContainer = document.getElementById('confetti');
