@@ -3,12 +3,16 @@ const popup = document.getElementById("updatePopup");
 const popupOk = document.getElementById("popupOk");
 
 window.addEventListener("load", () => {
-  popup.classList.add("show");
+  if (popup) {
+    popup.classList.add("show");
+  }
 });
 
-popupOk.addEventListener("click", () => {
-  popup.classList.remove("show");
-});
+if (popupOk && popup) {
+  popupOk.addEventListener("click", () => {
+    popup.classList.remove("show");
+  });
+}
 
 /* ENVELOPE + CONFETTI */
 const envelope = document.getElementById('envelope');
@@ -16,6 +20,8 @@ const closeBtn = document.getElementById('closeBtn');
 const confettiContainer = document.getElementById('confetti');
 
 function explodeConfetti() {
+  if (!confettiContainer) return;
+
   for (let i = 0; i < 180; i++) {
     const conf = document.createElement('div');
     conf.classList.add('confetti');
@@ -34,14 +40,18 @@ function explodeConfetti() {
   }
 }
 
-envelope.addEventListener('click', () => {
-  envelope.classList.add('open');
-  closeBtn.classList.remove('hidden');
-  explodeConfetti();
-});
+if (envelope) {
+  envelope.addEventListener('click', () => {
+    envelope.classList.add('open');
+    if (closeBtn) closeBtn.classList.remove('hidden');
+    explodeConfetti();
+  });
+}
 
-closeBtn.addEventListener('click', () => {
-  envelope.classList.remove('open');
-  closeBtn.classList.add('hidden');
-  confettiContainer.innerHTML = "";
-});
+if (closeBtn) {
+  closeBtn.addEventListener('click', () => {
+    if (envelope) envelope.classList.remove('open');
+    closeBtn.classList.add('hidden');
+    if (confettiContainer) confettiContainer.innerHTML = "";
+  });
+}
